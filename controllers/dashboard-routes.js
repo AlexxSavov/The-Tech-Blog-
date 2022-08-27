@@ -83,6 +83,9 @@ router.get('/', withAuth, (req, res) => {
       .then(dbPostData => {
         if (!dbPostData) 
   
+        res.status(404).json({ message: 'NO POST FOUD WITH THIS ID' });
+        return;
+
         const post = dbPostData.get({ plain: true });
       
       res.render('edit-post', {
