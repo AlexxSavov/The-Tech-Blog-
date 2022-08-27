@@ -1,0 +1,29 @@
+<article class="post">
+  <div class="post-head">  
+     <div class="title">
+
+          //// would like to insert image here not link
+   <!--
+     <a href="{{post_url}}" target="_blank">{{title}}</a>
+    <span>({{format_url post_url}})</span>
+  </div>
+  -->
+
+
+      <a href="/post/{{id}}">{{title}}</a>
+    </div>
+
+
+    <div class="meta">
+      Posted By {{user.username}} on {{format_date created_at}} | 
+      {{comments.length}} {{format_plural "comment" comments.length}}
+    </div>
+
+
+  </div>
+
+
+  <div class="post-text">
+    {{post_text}}
+  </div>
+</article>
