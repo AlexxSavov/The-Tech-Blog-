@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+const sequelize = require('../config/connection');
 
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
@@ -85,22 +86,21 @@ router.get('/', withAuth, (req, res) => {
     })
       .then(dbPostData => {
         if (!dbPostData) 
-  
+  {
         res.status(404).json({ message: 'NO POST FOUD WITH THIS ID' });
         return;
-
+      
+  }
         const post = dbPostData.get({ plain: true });
       
-      res.render('edit-post', {
-        post,
-        loggedIn: req.session.loggedIn
+        res.render('edit-post', {post, loggedIn: true});
       });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
-});
+
 
 router.get('/new', (req, res) => {
   res.render('new-post');
