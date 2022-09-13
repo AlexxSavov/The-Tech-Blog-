@@ -8,17 +8,17 @@ const path = require('path');
 
 const exphbs = require('express-handlebars');
 
-
 const helpers = require('./utils/helpers');
 
 
-const hbs = exphbs.create({helpers});
 
 
 const session = require('express-session');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const hbs = exphbs.create({helpers});
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -48,4 +48,5 @@ app.set('view engine', 'handlebars');
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening')); });
+  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
+});

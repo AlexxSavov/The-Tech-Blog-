@@ -1,5 +1,7 @@
 # The-Tech-Blog-
 an app for people to post and blog about the latest in tech news
+# The-Tech-Blog-
+an app for people to post and blog about the latest in tech news
 
 
 # **The Tech Blog**
@@ -25,4 +27,5 @@ Used to allow developers to post and comment on eachother's posts.
 Alexandre Savov
 ## Repository
 https://github.com/AlexxSavov/The-Tech-Blog-
+
 
